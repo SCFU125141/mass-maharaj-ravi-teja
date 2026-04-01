@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mass Maharaj Ravi Teja | Official Fan Zone</title>
+    <style>
+        /* --- Global & Reset Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        :root {
+            --primary: #ffcc00;
+            --secondary: #e6b800;
+            --bg-dark: #0a0a0a;
+            --bg-card: #151515;
+            --text-light: #ffffff;
+            --text-gray: #bbbbbb;
+        }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- Navigation Bar --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 15px 30px;
+        }
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 900;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        .nav-links a {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            background: var(--primary);
+            transition: 300ms;
+            bottom: -5px;
+            left: 0;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* --- Hero Section - Focused on Ravi Teja --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            /* Placeholder URL: Replace with a high-res shot of Ravi Teja (e.g., from 'Krack' or 'Dhamaka') */
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(10,10,10,1)), 
+                        url('path/to/ravi-teja-hero.jpg') center/cover no-repeat;
+            padding: 0 20px;
+            margin-top: 70px; /* Offset for fixed nav */
+        }
+        .hero-content {
+            max-width: 800px;
+        }
+        .hero-content h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 10px;
+            letter-spacing: 4px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.9);
+        }
+        .hero-content p {
+            font-size: 1.7rem;
+            font-weight: 400;
+            margin-bottom: 35px;
+            letter-spacing: 1.5px;
+            color: var(--text-gray);
+        }
+        .btn {
+            padding: 14px 40px;
+            background-color: var(--primary);
+            color: #000;
+            font-weight: 800;
+            text-transform: uppercase;
+            border-radius: 4px;
+            border: 2px solid var(--primary);
+            transition: 0.3s ease-in-out;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(255, 204, 0, 0.3);
+        }
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+            box-shadow: 0 6px 15px rgba(255, 204, 0, 0.5);
+        }
+
+        /* --- Section Common Styles --- */
+        section {
+            padding: 90px 20px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 55px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 5px;
+            background: var(--primary);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- Photo Gallery - Ravi Teja Only --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 380px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+            border: 1px solid #222;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Important: Ensures the actor's face fills the frame correctly */
+            object-position: top center; /* Focuses the crop on the face/upper body */
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.95));
+            padding: 25px;
+            color: #fff;
+            opacity: 0;
+            transition: 0.4s ease;
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        .gallery-overlay h3 {
+            font-size: 1.4rem;
+            text-
